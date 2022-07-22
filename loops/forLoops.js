@@ -6,77 +6,73 @@
 
 // NOTE Syntax:
 for (initializer; condition; iteration) {
-    // code block
+    // chunk code
 }
 
-// NOTE Example:
+// NOTE Examples:
 // initializer: let i = 0
 // condition: i <= 5
 // iteration: i++
+
 for (let i = 0; i <= 5; i++) {
-    console.log(i); //code block
-}
+    // chunk code
+    console.log(i);
+};
 
-let shoppingList = ["Apples", "Eggs", "Pepper", "String Cheese", "Tortilla", "Papaya"];
+let dbz = ["Goku", "Vegeta", "Mr.Popo", "Tien", "Master Roshi"];
 
-for (let j = 0; j < shoppingList.length; j++) {
-    console.log(shoppingList[j]);
-}
+for (let j = 0; j < dbz.length; j++) {
+    console.log(dbz[j]);
+    // console.log(dbz);
+    // console.log(j);
+    // console.log(j + " " + dbz);
+};
 
-// NOTE Method One: Print out only the items that start with "P"
-let shoppingList = ["Apples", "Eggs", "Pepper", "String Cheese", "Tortilla", "Papaya"];
+// NOTE Method One: Print out only the items that start with "T"
+let fruits = ["Apple", "Orange", "Tomato", "Watermelon", "Jackfruit", "Tamarindo", "Kiwi", "Peach"];
 
-for (let k = 0; k < shoppingList.length; k++) {
-    if (shoppingList[k][0] === "P") {
-        console.log(shoppingList[k]);
+for (let k = 0; k < fruits.length; k++) {
+    // console.log(fruits[k]);
+    // console.log(fruits[k][0]);
+    if (fruits[k][0] == "T") {
+        console.log(fruits[k]);
     }
-}
+};
 
-// NOTE Method Two: Print out only the items that start with "P"
-let shoppingList = ["Apples", "Eggs", "Pepper", "String Cheese", "Tortilla", "Papaya"];
+// NOTE Method Two: Print out only the items that start with "T"
+let fruits = ["Apple", "Orange", "Tomato", "Watermelon", "Jackfruit", "Tamarindo", "Kiwi", "Peach"];
 
-for (let l = 0; l < shoppingList.length; l++) {
-    if (shoppingList[l].startsWith("P")) { // .startsWith works with strings only
-        console.log(shoppingList[l]);
+for (let l = 0; l < fruits.length; l++) {
+    if (fruits[l].startsWith("T")) {
+        console.log(fruits[l]);
     }
-}
+};
 
 // NOTE Method One: Print out only one specific item (Done with string matching)
-let shoppingList = ["Apples", "Eggs", "Pepper", "String Cheese", "Tortilla", "Papaya"];
+let cycle10 = ["Michael", "Serafin", "Acquita", "Hiba", "Arelis", "Cesar", "Taizon", "Austin", "Noe", "Bencee", "Mejindra", "Sequona", "Torrontaye", "Christian", "Derick", "Rashaun", "Alex"];
 
-for (let m = 0; m < shoppingList.length; m++) {
-    if (shoppingList[m] === "Tortilla") {
-        console.log(shoppingList[m]);
+for (let c = 0; c < cycle10.length; c++) {
+    // Works, but not the preferred method
+    // if (cycle10[c].startsWith("Taizon")) {
+    //     console.log(cycle10[c]);
+    // }
+    if (cycle10[c] == "Taizon") {
+        console.log(cycle10[c]);
     }
-}
+};
 
 // NOTE Method Two: Print out only one specific item (Done with indexing)
-let shoppingList = ["Apples", "Eggs", "Pepper", "String Cheese", "Tortilla", "Papaya"];
+let cycle10 = ["Michael", "Serafin", "Acquita", "Hiba", "Arelis", "Cesar", "Taizon", "Austin", "Noe", "Bencee", "Mejindra", "Sequona", "Torrontaye", "Christian", "Derick", "Rashaun", "Alex"];
 
-for (let n = 0; n < shoppingList.length; n++) {
-    if (n == 4) {
-        console.log(shoppingList[n]);
+for (let b = 0; b < cycle10.length; b++) {
+    if (b === 14) {
+        console.log(cycle10[b]);
     }
-}
+};
 
-// NOTE Do It Yourself -- Loop through an array of string elements of animals. Only print out the last 2 elements.
 
-// Method One: Point to specific index
-let zoo = ["Giraffe", "Lion", "Tiger", "Bear", "Monkey"];
+// infinite loop
 
-for (let z = 0; z < zoo.length; z++) {
-    console.log(zoo[3], zoo[4]);
-}
-
-// Method Two: Increased the value of the initializer
-let zoo = ["Giraffe", "Lion", "Tiger", "Bear", "Monkey"];
-
-for (let a = 3; a < zoo.length; a++) {
-    console.log(zoo[a]);
-}
-
-// Method Three: Used slice -- Useful when you don't know the number of elements in an array.
-// Prints a new array with only the last two elements. (does not permanently change the array)
-let zoo = ["Giraffe", "Lion", "Tiger", "Bear", "Monkey", "Elephant"];
-console.log(zoo.slice(-2));
-console.log(zoo); // still the same after!
+for (let m = 5; m < 10; m--) {
+    console.log(m);
+};

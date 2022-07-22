@@ -1,30 +1,33 @@
+// initializer: starting value
+// condition: "run this code if true" (return true/false)
+// iteration: adds on to the initial value to continue the loop
+
 // NOTE Description: The most simple looping statement in JavaScript! Loops through a chunk of code as long as the condition is true.
 
 // NOTE Syntax:
 let i = 0; // initializer
 
 while (condition) {
-    // code block
-    i++; // iteration -- add 1 to the current value
+    // chunk of code
+    i++; // iteration - 0, 1
+    ++i; // 1
 }
 
 // NOTE Example:
 // True/Success
-let j = 1; // initializer
+let j = 0;
 
-while (j <= 5) { // condition
-    console.log("Current number is " + j + "!");
-
-    // j++; // iteration -- adds 1 to the current value
-    j+=2; // iteration -- adds 2 to the current value
+while (j <= 5) {
+    console.log(j);
+    j++;
 }
 
 // False/Fail
 // Fails because the condition was never true!
-let k = 10; // initializer
+let k = 0; // initializer
 
-while (k < 10) { // condition
-    console.log("Current number is less than 10! " + k);
-
-    k++; // iteration -- adds 1 to the current value
+while (k > 5) {
+    console.log(k);
+    k++;
+    console.log("Current val: " + k);
 }
