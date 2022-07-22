@@ -1,7 +1,7 @@
 /**
  * Write a program that simulates the following:
- * 1. Luggage is loaded into conatiners as it arrives.
- * 2. When weight is full, container is loaded into the aircraft (max 40lbs.)
+ * 1. Luggage is loaded into containers as it arrives.
+ * 2. When weight is full, the container is loaded into the aircraft (max 40lbs.)
  * 3. At the destination, the containers are unloaded from the plane LIFO order. (last in, first out)
  * 4. Luggage is then handed back individually
  * 
