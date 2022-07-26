@@ -5,12 +5,16 @@
  * 3. At the destination, the containers are unloaded from the plane LIFO order. (last in, first out)
  * 4. Luggage is then handed back individually
  * 
+ * Assume the following:
+ * Input will only contain integers.
+ * No decimal (doubles) values are to be expected
+ * 
  * Input: [30, 5, 6]
  * Key Point #1 Loaded into containers: [[30,5], [6]]
  * Key Point #2 LIFO Order: [[6],[30,5]]
  * Output: [6, 30, 5]
  * 
- * @param {string} input array of integers
+ * @param string input array of integers
  * @returns reordered array
  */
 function luggageLoading(input) {
@@ -28,7 +32,7 @@ function luggageLoading(input) {
     // NOTE 2a. When weight is full, the container is loaded into the aircraft (max 40lbs.)
     for (let i = 0; i < Luggage.length; i++) {
         let currLuggage = Luggage[i],
-            newWeight = currWeight + currLuggage;
+            newWeight = currWeight + currLuggage; //The predicted weight if the current luggage in the loop is added to the container
 
         // If there's room, add the luggage onto the single container
         if (newWeight <= maxWeight) {
@@ -48,16 +52,17 @@ function luggageLoading(input) {
                 finalContainers.push(singleContainer); // add to final array
             }
 
+            // Reset the values to continue on with checking the newWeight with the next element in the array.
             currWeight = currLuggage; // set current weight to be the new luggage in the loop
             singleContainer = []; // reset current single container to remove the old values
             singleContainer.push(currLuggage); // add the current luggage back
         }
 
-        // If it's a luggage that exceeds or meets the max weight, add to it's own container and push it to the final array.
+        // If the container is empty (no weight added) and it's a luggage that exceeds or meets the max weight, add to it to the final array.
         if ((currWeight == 0) && (newWeight >= maxWeight)) {
             singleContainer = []; // reset current container
 
-            // If it exceeds the max weight, we reject the luggage. Othewise we can go ahead and add it as it's own container.
+            // If it exceeds the max weight, we reject the luggage. Othewise we can go ahead and add it as it's own container to the final array (output).
             if (currLuggage > maxWeight) {
                 rejectedLuggage.push(currLuggage);
             } else {
@@ -65,9 +70,9 @@ function luggageLoading(input) {
             }
         }
 
-        // If there are no more values, just add it to the final array
+        // If this is the final luggage in the array, just add it to the final array
         if (i == Luggage.length - 1) {
-            // If it exceeds the max weight, we reject the luggage. Othewise we can go ahead and add it as it's own container.
+            // If it exceeds the max weight, we reject the luggage. Othewise we can go ahead and add it as it's own container to the final array (output).
             if (currLuggage > maxWeight) {
                 rejectedLuggage.push(singleContainer);
                 continue; // at this point, ignore the rest of the code for this luggage
@@ -87,6 +92,7 @@ function luggageLoading(input) {
     console.log(reOrderedContainers);
 
     // Merge the arrays into one - quick Google search ;)
+    // [[6], [30,5]] ==> [6,30,5]
     let finalArray = [].concat.apply([], reOrderedContainers);
 
     // NOTE BONUS 4. Rejected luggages
@@ -99,7 +105,12 @@ function luggageLoading(input) {
 };
 
 let intArr = [30, 5, 6, 7, 10, 5, 35, 40, 50, 5, 65, 3, 33],
-    str = "30,5,6,7,10,5,35,40,50,5,65,3,33";
+    str = "30,5,6,7,10,5,35,40,50,5,65,3,33"; // CHALLENGE
 console.log(luggageLoading(str));
 
-// TODO What about the case that the values are out of order? Then what?
+// TODO What about in the case that the values are out of order? Then what?
+// Example:
+// Input: [30,5,40,5]
+// #1: [[30,5,5], [40]]
+// #2: [[40], [30,5,5]]
+// Output: [40,30,5,5]
